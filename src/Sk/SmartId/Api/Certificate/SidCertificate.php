@@ -1,6 +1,8 @@
 <?php
 namespace Sk\SmartId\Api\Certificate;
+
 use Sk\SmartId\Util\PropertyMapper;
+
 class SidCertificate extends PropertyMapper
 {
   /**

@@ -26,8 +26,9 @@
  * #L%
  */
 namespace Sk\SmartId\Api\Certificate;
-use Sk\Mid\Util\Logger;
-use Sk\Mid\Exception\MissingOrInvalidParameterException;
+
+use Sk\SmartId\Exception\MissingOrInvalidParameterException;
+use Sk\SmartId\Util\Logger;
 
 class CertificateRequestBuilder
 {

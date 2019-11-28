@@ -1,4 +1,5 @@
 <?php
+
 /*-
  * #%L
  * Mobile ID sample PHP client
@@ -26,53 +27,41 @@
  */
 namespace Sk\SmartId\Api\Certificate;
 
-use JsonSerializable;
-
-class CertificateRequest extends AbstractRequest implements JsonSerializable
+abstract class AbstractRequest
 {
-    /** @var string $phoneNumber */
-    private $phoneNumber;
+    /** @var string $relyingPartyUUID */
+    private $relyingPartyUUID;
 
-    /** @var string $nationalIdentityNumber */
-    private $nationalIdentityNumber;
+    /** @var string $relyingPartyName */
+    private $relyingPartyName;
 
     public function __construct()
     {
-        parent::__construct();
     }
 
-    public function getPhoneNumber() : string
+    public function getRelyingPartyUUID() : ?string
     {
-        return $this->phoneNumber;
+        return $this->relyingPartyUUID;
     }
 
-    public function setPhoneNumber(string $phoneNumber) : void
+    public function setRelyingPartyUUID(?string $relyingPartyUUID) : void
     {
-        $this->phoneNumber = $phoneNumber;
+        $this->relyingPartyUUID = $relyingPartyUUID;
     }
 
-    public function getNationalIdentityNumber() : string
+    public function getRelyingPartyName() : ?string
     {
-        return $this->nationalIdentityNumber;
+        return $this->relyingPartyName;
     }
 
-    public function setNationalIdentityNumber(string $nationalIdentityNumber) : void
+    public function setRelyingPartyName(?string $relyingPartyName) : void
     {
-        $this->nationalIdentityNumber = $nationalIdentityNumber;
+        $this->relyingPartyName = $relyingPartyName;
     }
 
-    public static function newBuilder() : CertificateRequestBuilder
+    public function toString() : string
     {
-        return new CertificateRequestBuilder();
-    }
-
-    public function jsonSerialize() : array {
-        return [
-                'phoneNumber' => $this->getPhoneNumber(),
-                'nationalIdentityNumber' => $this->getNationalIdentityNumber(),
-                'relyingPartyUUID' => $this->getRelyingPartyUUID(),
-                'relyingPartyName' => $this->getRelyingPartyName()
-        ];
+        return "AbstractRequest{<br/>relyingPartyUUID=" . $this->relyingPartyUUID . "<br/>relyingPartyName=" . $this->relyingPartyName . "<br/>}<br/><br/>";
     }
 
 }

@@ -1,10 +1,8 @@
 <?php
 namespace Sk\SmartId\Util;
+use Exception;
 use ReflectionMethod;
 use ReflectionProperty;
-use Sk\Mid\Rest\Dao\AuthenticationCertificateSubject;
-use Sk\Mid\Rest\Dao\AuthenticationCertificateIssuer;
-use Sk\Mid\Rest\Dao\AuthenticationCertificateExtensions;
 use ReflectionException;
 abstract class PropertyMapper
 {

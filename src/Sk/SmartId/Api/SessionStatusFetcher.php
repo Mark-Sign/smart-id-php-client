@@ -26,6 +26,7 @@
  */
 namespace Sk\SmartId\Api;
 
+use Sk\SmartId\Api\Certificate\CertificateResponse;
 use Sk\SmartId\Api\Data\AuthenticationHash;
 use Sk\SmartId\Api\Data\SessionEndResultCode;
 use Sk\SmartId\Api\Data\SessionStatus;
@@ -196,6 +197,15 @@ class SessionStatusFetcher
   {
     $request = $this->createSessionStatusRequest( $this->sessionId );
     return $this->connector->getSessionStatus( $request );
+  }
+
+  /**
+   * @return CertificateResponse
+   */
+  public function pullCertificate()
+  {
+    $request = $this->createSessionStatusRequest( $this->sessionId );
+    return $this->connector->pullCertificate( $request );
   }
 
   /**

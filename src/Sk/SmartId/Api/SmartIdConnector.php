@@ -27,6 +27,8 @@
 
 namespace Sk\SmartId\Api;
 
+use Sk\SmartId\Api\Certificate\CertificateRequest;
+use Sk\SmartId\Api\Certificate\CertificateResponse;
 use Sk\SmartId\Api\Data\AuthenticationSessionRequest;
 use Sk\SmartId\Api\Data\AuthenticationSessionResponse;
 use Sk\SmartId\Api\Data\NationalIdentity;
@@ -73,5 +75,9 @@ interface SmartIdConnector
      */
     function getSessionStatus(SessionStatusRequest $request);
 
-    public function pullCertificate(CertificateRequest $request): CertificateResponse;
+    /**
+     * @param CertificateRequest $request
+     * @return CertificateResponse
+     */
+    function pullCertificate(CertificateRequest $request);
 }
