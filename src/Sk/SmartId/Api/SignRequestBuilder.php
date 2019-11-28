@@ -26,6 +26,7 @@
  */
 namespace Sk\SmartId\Api;
 
+use Sk\SmartId\Api\Data\AuthenticationHash;
 use Sk\SmartId\Api\Data\SignHash;
 use Sk\SmartId\Api\Data\SignSessionRequest;
 use Sk\SmartId\Api\Data\SignSessionResponse;
@@ -144,10 +145,10 @@ class SignRequestBuilder extends SmartIdRequestBuilder
   }
 
   /**
-   * @param SignHash $authenticationHash
+   * @param AuthenticationHash $authenticationHash
    * @return $this
    */
-  public function withSignHash( SignHash $authenticationHash )
+  public function withAuthenticationHash( SignHash $authenticationHash )
   {
     $this->authenticationHash = $authenticationHash;
     return $this;

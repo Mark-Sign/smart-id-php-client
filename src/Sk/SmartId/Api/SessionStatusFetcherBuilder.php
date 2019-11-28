@@ -28,6 +28,7 @@ namespace Sk\SmartId\Api;
 
 use Sk\SmartId\Api\Data\AuthenticationHash;
 use Sk\SmartId\Api\Data\SignableData;
+use Sk\SmartId\Api\Data\SignHash;
 use Sk\SmartId\Exception\TechnicalErrorException;
 
 class SessionStatusFetcherBuilder
