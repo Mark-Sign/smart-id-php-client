@@ -25,12 +25,15 @@
  * THE SOFTWARE.
  * #L%
  */
+
 namespace Sk\SmartId\Api\Certificate;
 
+use Sk\SmartId\Api\SmartIdRequestBuilder;
 use Sk\SmartId\Exception\MissingOrInvalidParameterException;
 use Sk\SmartId\Util\Logger;
 
 class CertificateRequestBuilder
+    // extends SmartIdRequestBuilder
 {
     /** @var Logger $logger */
     public static $logger;
@@ -52,31 +55,49 @@ class CertificateRequestBuilder
         self::$logger = new Logger('CertificateRequestBuilder');
     }
 
-    public function withRelyingPartyUUID(?string $relyingPartyUUID) : CertificateRequestBuilder
+    public function withRelyingPartyUUID(?string $relyingPartyUUID): CertificateRequestBuilder
     {
         $this->relyingPartyUUID = $relyingPartyUUID;
         return $this;
     }
 
-    public function withRelyingPartyName(?string $relyingPartyName) : CertificateRequestBuilder
+    public function withRelyingPartyName(?string $relyingPartyName): CertificateRequestBuilder
     {
         $this->relyingPartyName = $relyingPartyName;
         return $this;
     }
 
-    public function withPhoneNumber(string $phoneNumber) : CertificateRequestBuilder
+    public function withPhoneNumber(string $phoneNumber): CertificateRequestBuilder
     {
         $this->phoneNumber = $phoneNumber;
         return $this;
     }
 
-    public function withNationalIdentityNumber(string $nationalIdentityNumber) : CertificateRequestBuilder
+    public function withNationalIdentityNumber(string $nationalIdentityNumber): CertificateRequestBuilder
     {
         $this->nationalIdentityNumber = $nationalIdentityNumber;
         return $this;
     }
 
-    public function build() : CertificateRequest
+    /**
+     * @return CertificateResponse
+     */
+    private function getCertificateResponse()
+    {
+        $this->validateParameters();
+        $request = $this->createSignSessionRequest();
+
+        if (strlen($this->documentNumber)) {
+            return $this->getConnector()
+                ->sign($this->documentNumber, $request);
+        } else {
+            $identity = $this->getNationalIdentity();
+            return $this->getConnector()
+                ->pullCertificate($identity, $request);
+        }
+    }
+
+    public function build(): CertificateRequest
     {
         $this->validateParameters();
         $request = new CertificateRequest();

@@ -30,6 +30,7 @@ use InvalidArgumentException;
 use Sk\SmartId\Api\AbstractApi;
 use Sk\SmartId\Api\ApiType;
 use Sk\SmartId\Api\Authentication;
+use Sk\SmartId\Api\Sign;
 
 class Client
 {
@@ -77,6 +78,10 @@ class Client
       {
         return $this->authentication();
       }
+      case ApiType::SIGN:
+      {
+        return $this->sign();
+      }
 
       default:
       {
@@ -96,6 +101,19 @@ class Client
     }
 
     return $this->apis['authentication'];
+  }
+
+  /**
+   * @return Sign
+   */
+  public function sign()
+  {
+    if ( !isset( $this->apis['sign'] ) )
+    {
+      $this->apis['sign'] = new Sign( $this );
+    }
+
+    return $this->apis['sign'];
   }
 
   /**

@@ -69,15 +69,15 @@ interface SmartIdConnector
     function signWithIdentity(NationalIdentity $identity, SignSessionRequest $request);
 
     /**
+     * @param CertificateRequest $request
+     * @return CertificateResponse
+     */
+    function pullCertificate(CertificateRequest $request);
+
+    /**
      * @param SessionStatusRequest $request
      * @return SessionStatus
      * @throws SessionNotFoundException
      */
     function getSessionStatus(SessionStatusRequest $request);
-
-    /**
-     * @param CertificateRequest $request
-     * @return CertificateResponse
-     */
-    function pullCertificate(CertificateRequest $request);
 }

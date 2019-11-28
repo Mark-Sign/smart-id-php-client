@@ -200,15 +200,6 @@ class SessionStatusFetcher
   }
 
   /**
-   * @return CertificateResponse
-   */
-  public function pullCertificate()
-  {
-    $request = $this->createSessionStatusRequest( $this->sessionId );
-    return $this->connector->pullCertificate( $request );
-  }
-
-  /**
    * @throws TechnicalErrorException
    * @return SessionStatus|null
    */
