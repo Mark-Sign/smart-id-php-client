@@ -71,7 +71,7 @@ class SignRequestBuilder extends SmartIdRequestBuilder
   private $dataToSign;
 
   /**
-   * @var SignHash
+   * @var AuthenticationHash
    */
   private $authenticationHash;
 
@@ -148,7 +148,7 @@ class SignRequestBuilder extends SmartIdRequestBuilder
    * @param AuthenticationHash $authenticationHash
    * @return $this
    */
-  public function withAuthenticationHash( SignHash $authenticationHash )
+  public function withAuthenticationHash( AuthenticationHash $authenticationHash )
   {
     $this->authenticationHash = $authenticationHash;
     return $this;
