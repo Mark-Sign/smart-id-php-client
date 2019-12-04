@@ -138,7 +138,7 @@ class SignResponseValidator
     if ( $publicKey !== false )
     {
       $data = $authenticationResponse->getSignedData();
-      return openssl_verify( $data, $signature, $publicKey, $authenticationResponse->getAlgorithmName() == 'sha256' ? OPENSSL_ALGO_SHA512 : OPENSSL_ALGO_SHA256 ) === 1;
+      return openssl_verify( $data, $signature, $publicKey, $authenticationResponse->getAlgorithmName() == 'sha256' ? OPENSSL_ALGO_SHA256 : OPENSSL_ALGO_SHA512 ) === 1;
     }
     return false;
   }
