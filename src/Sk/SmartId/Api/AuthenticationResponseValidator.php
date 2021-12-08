@@ -138,7 +138,21 @@ class AuthenticationResponseValidator
     if ( $publicKey !== false )
     {
       $data = $authenticationResponse->getSignedData();
-      return openssl_verify( $data, $signature, $publicKey, OPENSSL_ALGO_SHA512 ) === 1;
+      switch ($authenticationResponse->getAlgorithmName()) {
+        case 'sha512WithRSAEncryption':
+          $signature_alg = OPENSSL_ALGO_SHA512;
+          break;
+        case 'sha256WithRSAEncryption':
+          $signature_alg = OPENSSL_ALGO_SHA256;
+          break;
+        case 'sha384WithRSAEncryption':
+          $signature_alg = OPENSSL_ALGO_SHA384;
+          break;
+        default:
+          $signature_alg = OPENSSL_ALGO_SHA1;
+      }
+
+      return openssl_verify( $data, $signature, $publicKey, $signature_alg ) === 1;
     }
     return false;
   }
