@@ -35,11 +35,10 @@ use Sk\SmartId\Api\Sign;
 class Client
 {
   const
-          DEMO_SID_PUBLIC_KEY_VALID_FROM_2021_10_06 = "sha256//wkdgNtKpKzMtH/zoLkgeScp1Ux4TLm3sUldobVGA/g4=",
           DEMO_SID_PUBLIC_KEY_VALID_FROM_2022_09_15_TO_2023_10_17 = "sha256//Ps1Im3KeB0Q4AlR+/J9KFd/MOznaARdwo4gURPCLaVA=",
-          RP_API_PUBLIC_KEY_VALID_FROM_2019_11_01_TO_2021_11_05 = "sha256//l2uvq6ftLN4LZ+8Un+71J2vH1BT9wTbtrE5+Fj3Vc5g=",
-          RP_API_PUBLIC_KEY_VALID_FROM_2021_09_14_TO_2022_10_15 = "sha256//nTL2Ju/1Mt+WAHeejqZHtgPNRu049iUcXOPq0GmRgJg=",
+          DEMO_SID_PUBLIC_KEY_VALID_FROM_2023_09_18_TO_2024_10_14 = "sha256//Ps1Im3KeB0Q4AlR+/J9KFd/MOznaARdwo4gURPCLaVA=",
           RP_API_PUBLIC_KEY_VALID_FROM_2022_09_14_TO_2023_10_16 = "sha256//UZFPjGPQRPJzUepeTSF9rjiYD+sy+XXPxij6rHN40aw=",
+          RP_API_PUBLIC_KEY_VALID_FROM_2023_09_14_TO_2024_10_15 = "sha256//q/3w4hrhcVsLXeKU6jYGADy2IxVTh9BP1cu+o3isfUA=",
           VERSION = '5.0';
 
   /**
@@ -186,8 +185,8 @@ class Client
     {
         $this->sslKeys = sprintf(
             '%s;%s',
-            self::DEMO_SID_PUBLIC_KEY_VALID_FROM_2021_10_06,
-            self::DEMO_SID_PUBLIC_KEY_VALID_FROM_2022_09_15_TO_2023_10_17
+            self::DEMO_SID_PUBLIC_KEY_VALID_FROM_2022_09_15_TO_2023_10_17,
+            self::DEMO_SID_PUBLIC_KEY_VALID_FROM_2023_09_18_TO_2024_10_14
         );
 
         return $this;
@@ -196,10 +195,9 @@ class Client
     public function useOnlyLivePublicKey()
     {
         $this->sslKeys = sprintf(
-            '%s;%s;%s',
-            self::RP_API_PUBLIC_KEY_VALID_FROM_2019_11_01_TO_2021_11_05,
-            self::RP_API_PUBLIC_KEY_VALID_FROM_2021_09_14_TO_2022_10_15,
-            self::RP_API_PUBLIC_KEY_VALID_FROM_2022_09_14_TO_2023_10_16
+            '%s;%s',
+            self::RP_API_PUBLIC_KEY_VALID_FROM_2022_09_14_TO_2023_10_16,
+            self::RP_API_PUBLIC_KEY_VALID_FROM_2023_09_14_TO_2024_10_15
         );
 
         return $this;
@@ -210,12 +208,11 @@ class Client
       if($this->sslKeys === null)
       {
           $this->sslKeys = sprintf(
-              '%s;%s;%s;%s;%s',
-              self::DEMO_SID_PUBLIC_KEY_VALID_FROM_2021_10_06,
+              '%s;%s;%s;%s',
               self::DEMO_SID_PUBLIC_KEY_VALID_FROM_2022_09_15_TO_2023_10_17,
-              self::RP_API_PUBLIC_KEY_VALID_FROM_2019_11_01_TO_2021_11_05,
-              self::RP_API_PUBLIC_KEY_VALID_FROM_2021_09_14_TO_2022_10_15,
-              self::RP_API_PUBLIC_KEY_VALID_FROM_2022_09_14_TO_2023_10_16
+              self::DEMO_SID_PUBLIC_KEY_VALID_FROM_2023_09_18_TO_2024_10_14,
+              self::RP_API_PUBLIC_KEY_VALID_FROM_2022_09_14_TO_2023_10_16,
+              self::RP_API_PUBLIC_KEY_VALID_FROM_2023_09_14_TO_2024_10_15
           );
       }
       return $this->sslKeys;
