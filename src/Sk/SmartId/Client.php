@@ -35,10 +35,10 @@ use Sk\SmartId\Api\Sign;
 class Client
 {
   const
-          DEMO_SID_PUBLIC_KEY_VALID_FROM_2022_09_15_TO_2023_10_17 = "sha256//Ps1Im3KeB0Q4AlR+/J9KFd/MOznaARdwo4gURPCLaVA=",
           DEMO_SID_PUBLIC_KEY_VALID_FROM_2023_09_18_TO_2024_10_14 = "sha256//Ps1Im3KeB0Q4AlR+/J9KFd/MOznaARdwo4gURPCLaVA=",
-          RP_API_PUBLIC_KEY_VALID_FROM_2022_09_14_TO_2023_10_16 = "sha256//UZFPjGPQRPJzUepeTSF9rjiYD+sy+XXPxij6rHN40aw=",
+          DEMO_SID_PUBLIC_KEY_VALID_FROM_2024_10_03_TO_2025_10_15 = "sha256//Ps1Im3KeB0Q4AlR+/J9KFd/MOznaARdwo4gURPCLaVA=",
           RP_API_PUBLIC_KEY_VALID_FROM_2023_09_14_TO_2024_10_15 = "sha256//q/3w4hrhcVsLXeKU6jYGADy2IxVTh9BP1cu+o3isfUA=",
+          RP_API_PUBLIC_KEY_VALID_FROM_2024_09_18_TO_2025_10_20 = "sha256//5qbYbM98EtA9yIVCQ1HVnkKyqZBUL6kpHoZfuMN+i8o=",
           VERSION = '5.0';
 
   /**
@@ -185,8 +185,8 @@ class Client
     {
         $this->sslKeys = sprintf(
             '%s;%s',
-            self::DEMO_SID_PUBLIC_KEY_VALID_FROM_2022_09_15_TO_2023_10_17,
-            self::DEMO_SID_PUBLIC_KEY_VALID_FROM_2023_09_18_TO_2024_10_14
+            self::DEMO_SID_PUBLIC_KEY_VALID_FROM_2023_09_18_TO_2024_10_14,
+            self::DEMO_SID_PUBLIC_KEY_VALID_FROM_2024_10_03_TO_2025_10_15
         );
 
         return $this;
@@ -196,8 +196,8 @@ class Client
     {
         $this->sslKeys = sprintf(
             '%s;%s',
-            self::RP_API_PUBLIC_KEY_VALID_FROM_2022_09_14_TO_2023_10_16,
-            self::RP_API_PUBLIC_KEY_VALID_FROM_2023_09_14_TO_2024_10_15
+            self::RP_API_PUBLIC_KEY_VALID_FROM_2023_09_14_TO_2024_10_15,
+            self::RP_API_PUBLIC_KEY_VALID_FROM_2024_09_18_TO_2025_10_20
         );
 
         return $this;
@@ -209,10 +209,10 @@ class Client
       {
           $this->sslKeys = sprintf(
               '%s;%s;%s;%s',
-              self::DEMO_SID_PUBLIC_KEY_VALID_FROM_2022_09_15_TO_2023_10_17,
               self::DEMO_SID_PUBLIC_KEY_VALID_FROM_2023_09_18_TO_2024_10_14,
-              self::RP_API_PUBLIC_KEY_VALID_FROM_2022_09_14_TO_2023_10_16,
-              self::RP_API_PUBLIC_KEY_VALID_FROM_2023_09_14_TO_2024_10_15
+              self::DEMO_SID_PUBLIC_KEY_VALID_FROM_2024_10_03_TO_2025_10_15,
+              self::RP_API_PUBLIC_KEY_VALID_FROM_2023_09_14_TO_2024_10_15,
+              self::RP_API_PUBLIC_KEY_VALID_FROM_2024_09_18_TO_2025_10_20
           );
       }
       return $this->sslKeys;
